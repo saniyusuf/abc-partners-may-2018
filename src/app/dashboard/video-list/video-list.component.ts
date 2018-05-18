@@ -7,12 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
   videoList = myVideoData;
+  selectedVideoID;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  setSelectedVideo(videoID) {
+    this.selectedVideoID = videoID;
+  }
 }
 
 const myVideoData = [

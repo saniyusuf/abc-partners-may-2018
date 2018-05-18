@@ -2,6 +2,7 @@
   video-dashboard works!
 </p>
 
-<app-video-list></app-video-list>
-<app-video-player></app-video-player>
+<app-video-list (selectVideo)="onVideoSelected($event)"></app-video-list>
+<br>
+<app-video-player [videoToPlay]="selectedVideo"></app-video-player>
 <app-stat-filters></app-stat-filters>

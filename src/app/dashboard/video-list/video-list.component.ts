@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Video} from '../api.types';
 
 @Component({
@@ -9,6 +9,7 @@ import {Video} from '../api.types';
 export class VideoListComponent implements OnInit {
   videoList: Video[] = myVideoData;
   selectedVideoID;
+  @Output() selectVideo = new EventEmitter<Video>();
 
   constructor() { }
 
@@ -17,6 +18,11 @@ export class VideoListComponent implements OnInit {
 
   setSelectedVideo(videoID) {
     this.selectedVideoID = videoID;
+    const selectedVideo = this.videoList.find((video)=>{
+      return video.id === videoID;
+    });
+
+    this.selectVideo.emit(selectedVideo);
   }
 }
 

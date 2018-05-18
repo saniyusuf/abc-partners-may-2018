@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Video} from '../api.types';
 
 @Component({
   selector: 'app-video-list',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./video-list.component.css']
 })
 export class VideoListComponent implements OnInit {
-  videoList = myVideoData;
+  videoList: Video[] = myVideoData;
   selectedVideoID;
 
   constructor() { }
